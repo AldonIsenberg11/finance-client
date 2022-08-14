@@ -4,7 +4,10 @@ import { inspect } from 'util';
 
 const { data, pending, error, refresh } = await useFetch('http://localhost:6060/stockBreakdown')
 
-let stock = data.value[0];
+const stock = data.value[0] || {date: new Date()}
+
+
+console.log({data: data.value})
 
 // try {
 //   stock = JSON.parse(stock)
